@@ -1,0 +1,21 @@
+module.exports = {
+    outputDir:'dist',
+    assetsDir:'assets',
+    lintOnSave:false,
+    devServer:{
+        open:true,
+        host:"localhost",
+        port:'8088',
+        https:false,
+        hotOnly:false,
+        proxy:{
+            '/api':{
+                target:'http://localhost:3000/admin/api',
+                changeOrigin:true,
+                pathRewrite:{
+                    '^/api':''
+                }
+            }
+        }
+    }
+}
